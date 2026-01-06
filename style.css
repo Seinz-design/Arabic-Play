@@ -1,0 +1,115 @@
+*, body, html {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.screen {
+    width: auto;
+    height: 100vh;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 40%, rgba(175, 133, 91, 1) 100%);
+    color: aliceblue;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+    height: 330px;
+    /* background-color: #00ff59; */
+}
+
+.cover-img {
+    height: 270px;
+    width: 290px;
+    border-radius: 5px;
+    margin-top: 30px;
+    box-shadow: -14px 7px 33px -10px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: -14px 7px 33px -10px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -14px 7px 33px -10px rgba(0, 0, 0, 0.75);
+}
+
+.cover-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 30px;
+}
+
+.desk {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.desk h2 {
+    font-family: "Playwrite NO", cursive;
+    letter-spacing: 1px;
+}
+
+.desk p {
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.toggle {
+    color: #00ff59;
+    height: 70px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.toggle .bi {
+    height: 55px;
+    width: auto;
+}
+
+.bi:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.playlist {
+    height: 300px ;
+    margin: 0px 25px;
+    margin-top: 20px;
+    background-color: rgb(0, 7, 7);
+    overflow-y: auto;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    border-radius: 5px;
+}
+
+.playlist h3 {
+    font-family: "TikTok Sans", sans-serif;
+    text-transform: capitalize;
+    font-weight:300;
+}
+.playlist p {
+    font-family: "TikTok Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 100;
+    color: rgba(255, 255, 255, 0.774);
+}
+
+.pl {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 60px;
+    padding-left: 10px;
+}
+
+.pl:hover {
+    background-color: black;
+    /* border-bottom: 1px solid rgba(255, 255, 255, 0.274) ; */
+    transition: background-color 0.5s ease-in-out ;
+    cursor: pointer;
+}
