@@ -1,6 +1,5 @@
 import { playList } from "../script/playlist.mjs";
 
-console.log(playList);
 let currentIndex = null;
 const audio = new Audio();
 
@@ -98,6 +97,5 @@ toggle.addEventListener("click", () => {
         return;
 });
 
-console.log(currentIndex);
 
 
