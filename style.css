@@ -76,7 +76,7 @@ header {
 }
 
 .playlist {
-    height: 300px ;
+    height: 300vh ;
     margin: 0px 25px;
     margin-top: 20px;
     background-color: rgb(0, 7, 7);
