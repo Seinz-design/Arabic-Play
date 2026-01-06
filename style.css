@@ -1,12 +1,14 @@
 *, body, html {
-    overflow: hidden;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 .screen {
-    width: auto;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: auto;
     background: linear-gradient(0deg, rgba(0, 0, 0, 1) 40%, rgba(175, 133, 91, 1) 100%);
     color: aliceblue;
 }
@@ -76,7 +78,8 @@ header {
 }
 
 .playlist {
-    height: 300vh ;
+    flex: 1;
+    min-height: 0 ;
     margin: 0px 25px;
     margin-top: 20px;
     background-color: rgb(0, 7, 7);
@@ -112,4 +115,10 @@ header {
     /* border-bottom: 1px solid rgba(255, 255, 255, 0.274) ; */
     transition: background-color 0.5s ease-in-out ;
     cursor: pointer;
+}
+
+@media (min-width: 420px) {
+    .screen {
+        margin-top: 20px;
+    }
 }

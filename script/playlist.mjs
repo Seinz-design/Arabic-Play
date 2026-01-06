@@ -35,6 +35,11 @@ export let playList = [
         src: ""
     },
     {
+        Judul: "farhan",
+        Penyanyi: "usul",
+        src: ""
+    },
+    {
         Judul: "Akhir"
     }
 ]
