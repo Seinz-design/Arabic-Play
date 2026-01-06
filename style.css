@@ -87,7 +87,7 @@ header {
     overflow-y: auto;
     scrollbar-width: none;
     scroll-behavior: smooth;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .playlist h3 {

@@ -2,6 +2,8 @@ import { playList } from "../script/playlist.mjs";
 
 console.log(playList);
 let currentIndex = null;
+const audio = new Audio();
+
 
 const queue = document.querySelector(".playlist");
 
@@ -21,11 +23,8 @@ for (let i = 0; i < playList.length; i++) {
         card.appendChild(judul);
         card.appendChild(penyanyi);
         queue.appendChild(card);
-
 }
 
-
-const audio = new Audio();
 const musicCard = document.querySelectorAll(".pl")
 musicCard.forEach(musicCards => {
         musicCards.addEventListener("click", () => {
@@ -52,7 +51,7 @@ musicCard.forEach(musicCards => {
                 console.log("audio sedang diputar.");
 
                 currentIndex = index;
-
+                console.log(currentIndex);
         });
 });
 
@@ -84,9 +83,21 @@ toggle.addEventListener("click", () => {
         if (!audio.paused) {
                 audio.pause();
         } else {
-                audio.play();
+                if (currentIndex === null) {
+                        const randomIndex = Math.floor(Math.random() * playList.length);
+
+                        audio.src = playList[randomIndex].src;
+                        audio.play();
+
+                        currentIndex = randomIndex;
+                        console.log(currentIndex)
+                } else {
+                        audio.play();
+                }
         }
         return;
 });
+
+console.log(currentIndex);
 
 
