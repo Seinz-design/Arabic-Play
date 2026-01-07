@@ -1,6 +1,6 @@
 :root {
     --top-bar: 60px;
-    --bottom-bar: 80px;
+    --bottom-bar: 400px;
 }
 
 *, body, html {
