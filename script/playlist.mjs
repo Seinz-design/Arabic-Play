@@ -15,9 +15,9 @@ export let playList = [
         src: ""
     },
     {
-        Judul: "farhan",
-        Penyanyi: "usul",
-        src: ""
+        Judul: "Ghannili",
+        Penyanyi: "Alma ESBEYE",
+        src: "./assets/lagu/ghannili.mp3"
     },
     {
         Judul: "farhan",
@@ -25,9 +25,9 @@ export let playList = [
         src: ""
     },
     {
-        Judul: "farhan",
-        Penyanyi: "usul",
-        src: ""
+        Judul: "Sukaro",
+        Penyanyi: "Alma ESBEYE",
+        src: "./assets/lagu/sukaro.mp3"
     },
     {
         Judul: "farhan",

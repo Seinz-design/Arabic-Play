@@ -69,15 +69,15 @@ const playIcon = `
 const toggle = document.querySelector(".toggle");
 
 audio.addEventListener("pause", () => {
-        console.log("pause")
+        console.log("pause");
         toggle.innerHTML = playIcon;
 });
 audio.addEventListener("play", () => {
-        console.log("play")
+        console.log("play");
         toggle.innerHTML = pauseIcon;
 });
 
-
+// toggle play stop
 toggle.addEventListener("click", () => {
         if (!audio.paused) {
                 audio.pause();
@@ -97,5 +97,13 @@ toggle.addEventListener("click", () => {
         return;
 });
 
+// auto play after ended music
+audio.addEventListener("ended", () => {
+        currentIndex++;
 
+        audio.src = playList[currentIndex].src;
+        audio.play();
+        console.log("audio sedang diputar.");
+        console.log(currentIndex);
+});
 
