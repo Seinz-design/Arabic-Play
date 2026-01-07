@@ -1,8 +1,16 @@
+:root {
+    --top-bar: 60px;
+    --bottom-bar: 80px;
+}
+
 *, body, html {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    padding-top: calc(var(--top-bar) + env(safe-area-inste-top));
+    padding-top: calc(var(--bottom-bar) + env(safe-area-inste-bottom));
 }
+
 
 .screen {
     height: 100vh;
@@ -12,6 +20,7 @@
     background: linear-gradient(0deg, rgba(0, 0, 0, 1) 40%, rgba(175, 133, 91, 1) 100%);
     color: aliceblue;
     position: relative;
+
 }
 
 .nav-toggle {
@@ -20,8 +29,10 @@
     align-items: center;
     position: absolute;
     background-color: #000000;
-    width: 100vw;
+    width: 420px;
     height: 60px;
+    right: 0%;
+    left: 0%;
     bottom: 0%;
     text-align: center;
     font-size: 40px;
