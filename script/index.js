@@ -1,4 +1,5 @@
 import { playList } from "../script/playlist.mjs";
+console.log(playList);
 
 let currentIndex = null;
 const audio = new Audio();
@@ -50,7 +51,7 @@ musicCard.forEach(musicCards => {
 
                 currentIndex = index;
                 console.log(currentIndex);
-        });
+        }); currentIndex;
 });
 
 const pauseIcon = `
@@ -109,12 +110,48 @@ toggle.forEach(toggles => {
 // auto play after ended music
 audio.addEventListener("ended", () => {
         currentIndex++;
-
         audio.src = playList[currentIndex].src;
         audio.play();
         console.log("audio sedang diputar.");
         console.log(currentIndex);
 });
 
+const backward = document.getElementById("backward");
+const forward = document.getElementById("forward");
 
+function next() {
+        if (currentIndex == playList.length-1) {
+                currentIndex = playList.length - playList.length;
+                audio.src = playList[0].src;
+                audio.play();
+                console.log(currentIndex);
+        } else {
+                currentIndex++;
+                audio.src = playList[currentIndex].src;
+                audio.play();
+                console.log(currentIndex);
+        }
+}
 
+function back() {
+        if (currentIndex === null || currentIndex === 0) {
+                if (playList.length - 1) {
+                        currentIndex = playList.length - 1;
+                        audio.src = playList[currentIndex].src;
+                        audio.play();
+                        console.log("audio sedang diputar.");
+                        console.log(currentIndex);
+                } return currentIndex
+        } else {
+                audio.src = playList[--currentIndex].src;
+                audio.play();
+                console.log(currentIndex);
+        }
+};
+
+forward.onclick = () => {
+        next();
+};
+backward.onclick = () => {
+        back();
+};

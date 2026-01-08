@@ -40,6 +40,8 @@ export let playList = [
         src: ""
     },
     {
-        Judul: "Akhir"
+        Judul: "Akhir",
+        Penyanyi: "Alma ESBEYE",
+        src: "./assets/lagu/sukaro.mp3"
     }
 ]
