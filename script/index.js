@@ -2,28 +2,35 @@ import { playList } from "../script/playlist.mjs";
 console.log(playList);
 
 let currentIndex = null;
-const audio = new Audio();
 let timeIndex = null;
+const audio = new Audio();
 
 
 const queue = document.querySelector(".playlist");
 const timerStart = document.querySelector(".time-start");
 const timerEnd = document.querySelector(".time-end");
 
+function formatTime(seconds) {
+        const menit = Math.floor(seconds / 60);
+        const detik = Math.floor(seconds % 60);
+        return `${menit}:${detik.toString().padStart(2, "0")}`;
+}
+
 audio.addEventListener("loadedmetadata", () => {
         timeIndex = audio.duration;
         console.log(timeIndex);
-        timerStart.textContent = "halo";
-        timerEnd.textContent = timeIndex;
+        timerEnd.textContent = formatTime(timeIndex);
 });
+
+audio.addEventListener("timeupdate", () => {
+        timerStart.textContent = formatTime(audio.currentTime);
+})
 
 function playByIndex(index) {
         currentIndex = index;
         audio.src = playList[index].src;
         audio.play();
 };
-
-
 
 // ini nampilin playlist
 for (let i = 0; i < playList.length; i++) {
