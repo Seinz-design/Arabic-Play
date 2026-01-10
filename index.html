@@ -27,18 +27,25 @@
                 <h2>Arabic Song</h2>
                 <p>Playlist By Hunt</p>
             </div>
-            <div class="toggle" >
+            <div class="toggle">
                 <i class="bi bi-play-circle-fill"></i>
             </div>
         </header>
         <section class="playlist">
         </section>
-        <section class="nav-toggle">
-            <i class="bi bi-skip-start-fill" id="backward"></i>
-            <div class="toggle">
-                <i class="bi bi-play-circle-fill"></i>
+        <section class="navbar">
+            <div class="seekbar-container">
+                <span class="time-start">00:00</span>
+                <input type="range" class="seekbar" value="0" min="0" max="100">
+                <span class="time-end">00:00</span>
             </div>
-            <i class="bi bi-skip-end-fill" id="forward"></i>
+            <div class="nav-toggle">
+                <i class="bi bi-skip-start-fill" id="backward"></i>
+                <div class="toggle">
+                    <i class="bi bi-play-circle-fill"></i>
+                </div>
+                <i class="bi bi-skip-end-fill" id="forward"></i>
+            </div>
         </section>
     </main>
     <script type="module" src="./script/index.js"></script>

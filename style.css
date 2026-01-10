@@ -6,7 +6,6 @@
 *, body, html {
     margin: 0;
     padding: 0;
-    overflow: hidden;
     padding-top: calc(var(--top-bar) + env(safe-area-inste-top));
     padding-bottom: calc(var(--bottom-bar) + env(safe-area-inste-bottom));
 }
@@ -20,19 +19,25 @@
     background: linear-gradient(0deg, rgb(8, 8, 8) 55%, rgba(175, 133, 91, 1) 100%);
     color: aliceblue;
     position: relative;
+    overflow: hidden;
+    scrollbar-width: none;
+}
 
+.navbar {
+    height: 80px;
+    right: 0%;
+    left: 0%;
+    bottom: 0%;
+    position: fixed;
+    background-color: #000000;
+    padding-top: 10px;
+    max-width: 500px;
 }
 
 .nav-toggle {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    background-color: #000000;
-    height: 70px;
-    right: 0%;
-    left: 0%;
-    bottom: 0%;
     text-align: center;
     font-size: 40px;
     color: #ffffffb9;
@@ -44,11 +49,52 @@
     transform: scale(1.1);
 }
 
+.seekbar-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    font-family: sans-serif;
+}
+
+.seekbar-container span {
+    margin-left: 10px;
+    font-size: 12px;
+    color: #bdb3b3;
+    min-width: 35px;
+}
+
+.seekbar {
+    -webkit-appearance: none;
+    width: 80%;
+    height: 2px;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.seekbar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 8px;
+    height: 8px;
+    background: rgba(175, 133, 91, 1);
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.seekbar::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    background: rgba(175, 133, 91, 1)
+}
+
 .image {
     display: flex;
     justify-content: center;
     height: 270px;
-    /* background-color: #00ff59; */
 }
 
 .cover-img {
@@ -91,7 +137,7 @@ header {
 }
 
 .toggle {
-    color: #fcb5a0;
+    color: rgba(175, 133, 91, 1);
     height: 70px;
     width: 70px;
     display: flex;
@@ -148,7 +194,7 @@ header {
 
 .pl:hover {
     background-color: black;
-   border-radius: 10px;
+    border-radius: 10px;
     transition: background-color 0.5s ease-in-out;
     cursor: pointer;
 }

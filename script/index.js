@@ -3,10 +3,29 @@ console.log(playList);
 
 let currentIndex = null;
 const audio = new Audio();
+let timeIndex = null;
 
 
 const queue = document.querySelector(".playlist");
+const timerStart = document.querySelector(".time-start");
+const timerEnd = document.querySelector(".time-end");
 
+audio.addEventListener("loadedmetadata", () => {
+        timeIndex = audio.duration;
+        console.log(timeIndex);
+        timerStart.textContent = "halo";
+        timerEnd.textContent = timeIndex;
+});
+
+function playByIndex(index) {
+        currentIndex = index;
+        audio.src = playList[index].src;
+        audio.play();
+};
+
+
+
+// ini nampilin playlist
 for (let i = 0; i < playList.length; i++) {
         let title = playList[i].Judul;
         let sing = playList[i].Penyanyi;
@@ -22,14 +41,13 @@ for (let i = 0; i < playList.length; i++) {
         card.appendChild(judul);
         card.appendChild(penyanyi);
         queue.appendChild(card);
-}
+};
 
 const musicCard = document.querySelectorAll(".pl")
 musicCard.forEach(musicCards => {
         musicCards.addEventListener("click", () => {
                 const index = musicCards.dataset.index;
                 const audioPlayed = playList[index].src;
-
                 if (currentIndex == index) {
                         if (audio.paused) {
                                 audio.play();
@@ -38,7 +56,6 @@ musicCard.forEach(musicCards => {
                         }
                         return;
                 };
-
                 audio.pause();
                 // durasi musik
                 audio.currentTime = 0;
@@ -46,11 +63,12 @@ musicCard.forEach(musicCards => {
                 audio.src = audioPlayed;
                 audio.play();
 
-
+                timeIndex = audio.duration
                 console.log("audio sedang diputar.");
 
                 currentIndex = index;
                 console.log(currentIndex);
+                console.log(timeIndex);
         }); currentIndex;
 });
 
@@ -92,11 +110,7 @@ toggle.forEach(toggles => {
                 } else {
                         if (currentIndex === null) {
                                 const randomIndex = Math.floor(Math.random() * playList.length);
-
-                                audio.src = playList[randomIndex].src;
-                                audio.play();
-
-                                currentIndex = randomIndex;
+                                playByIndex(randomIndex);
                                 console.log(currentIndex)
                         } else {
                                 audio.play();
@@ -110,8 +124,7 @@ toggle.forEach(toggles => {
 // auto play after ended music
 audio.addEventListener("ended", () => {
         currentIndex++;
-        audio.src = playList[currentIndex].src;
-        audio.play();
+        playByIndex(currentIndex);
         console.log("audio sedang diputar.");
         console.log(currentIndex);
 });
@@ -120,15 +133,14 @@ const backward = document.getElementById("backward");
 const forward = document.getElementById("forward");
 
 function next() {
-        if (currentIndex == playList.length-1) {
+        if (currentIndex == playList.length - 1) {
                 currentIndex = playList.length - playList.length;
                 audio.src = playList[0].src;
                 audio.play();
                 console.log(currentIndex);
         } else {
                 currentIndex++;
-                audio.src = playList[currentIndex].src;
-                audio.play();
+                playByIndex(currentIndex);
                 console.log(currentIndex);
         }
 }
@@ -137,8 +149,7 @@ function back() {
         if (currentIndex === null || currentIndex === 0) {
                 if (playList.length - 1) {
                         currentIndex = playList.length - 1;
-                        audio.src = playList[currentIndex].src;
-                        audio.play();
+                        playByIndex(currentIndex);
                         console.log("audio sedang diputar.");
                         console.log(currentIndex);
                 } return currentIndex
@@ -155,3 +166,4 @@ forward.onclick = () => {
 backward.onclick = () => {
         back();
 };
+
