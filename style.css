@@ -66,8 +66,9 @@
 
 .seekbar {
     -webkit-appearance: none;
+    appearance: none;
     width: 80%;
-    height: 2px;
+    height: 4px;
     background: #ddd;
     border-radius: 5px;
     outline: none;
@@ -77,8 +78,8 @@
 .seekbar::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 8px;
-    height: 8px;
+    width: 14px;
+    height: 14px;
     background: rgba(175, 133, 91, 1);
     border-radius: 50%;
     border: 2px solid #fff;
